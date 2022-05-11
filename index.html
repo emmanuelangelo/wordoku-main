@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Wordoku: The Sudoku Game, but with Words!</title>
+    <meta name="description" content="Wordoku: The Sudoku Game, but with Words!">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="Wordoku: The Sudoku Game, but with Words!">
+    <meta property="og:type" content="game">
+    <meta property="og:url" content="https://chrisrobison.github.io/wordoku/">
+    <meta property="og:image" content="">
+
+    <script src='lib/sudoku.js' async></script>
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nova+Flat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href='style.css'>
+    <style>
+canvas {
+    pointer-events:none;
+}
+#defaultCanvas0 {
+    position:absolute;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    opacity:.5; 
+    pointer-events:none;
+}
+    </style>
+
+</head>
+
+<body id="home">
+    <main>
+        <h1>Sudoku: Words</h1>
+        <div id='toolbar'>
+            <div id='scoreWrap'>
+                <label id='scoreLabel' for='score'></label>
+                <span id='score'>00000</span>
+            </div>
+            <div id='timeWrap'>
+                <label id='timeLabel' for='time'></label>
+                <span id='time'>00:00</span>
+            </div>
+            <div id='difficultyWrap' style='display:inline-block;white-space:nowrap;'>
+                <label class='levelLabel'></label>
+                <table id='levelTable'>
+                    <tr>
+                        <td><a class='level level_1' title='Easy' href='#easy'>.</a></td>
+                        <td><a class='level level_2' title='Average' href='#medium'>.</a></td>
+                        <td class='levelSelected'><a class='level level_3' title='Difficult' href='#hard'>.</a></td>
+                        <td><a class='level level_4' title='Very Hard' href='#very-hard'>.</a></td>
+                        <td><a class='level level_5' title='Insane' href='#insane'>.</a></td>
+                        <td><a class='level level_6' title='Robot' href='#inhuman'>.</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div id='buttons'>
+                <button title='New Game' id='newGame'>⚙</button>
+            </div>
+        </div>
+        <div id='sudoku-board'></div>
+        <div id='word'>
+            <input type='text' class='wordletter' id='letter_1'>
+            <input type='text' class='wordletter' id='letter_2'>
+            <input type='text' class='wordletter' id='letter_3'>
+            <input type='text' class='wordletter' id='letter_4'>
+            <input type='text' class='wordletter' id='letter_5'>
+            <input type='text' class='wordletter' id='letter_6'>
+            <input type='text' class='wordletter' id='letter_7'>
+            <input type='text' class='wordletter' id='letter_8'>
+            <input type='text' class='wordletter' id='letter_9'>
+        </div>
+        <div id='numbers'>
+            <a href="#1" id='num_1' class='button'>1</a>
+            <a href="#2" id='num_2' class='button'>2</a>
+            <a href="#3" id='num_3' class='button'>3</a>
+            <a href="#4" id='num_4' class='button'>4</a>
+            <a href="#5" id='num_5' class='button'>5</a>
+            <a href="#6" id='num_6' class='button'>6</a>
+            <a href="#7" id='num_7' class='button'>7</a>
+            <a href="#8" id='num_8' class='button'>8</a>
+            <a href="#9" id='num_9' class='button'>9</a>
+        </div>
+        <div id='definition'>
+        </div>
+        <nav id='menu'>
+            <ul>
+                <li><button id='resume'><span class='icon backIcon'></span><span class='btnLabel'>Resume Game</span></button></li>
+                <li><button id='quitGame'><span class='icon newGameIcon'></span><span class='btnLabel'>New Game</span></button></li>
+                <li><button id='solveGame' class='disabled'><span class='icon puzzleIcon'></span><span class='btnLabel'>Solve Game</span></button></li>
+                <li><button id='highScoresBtn'><span class='icon trophy'>🏆</span><span class='btnLabel'>High Scores...</span></button></li>
+                <li><button id='gameHistory'><span class='icon historyIcon'></span><span class='btnLabel'>Game History...</span></button></li>
+                <li><button id='aboutBtn'><span class='icon infoIcon'></span><span class='btnLabel'>About...</span></button></li>
+                <li><button id='helpBtn'><span class='icon helpIcon'></span><span class='btnLabel'>Help...</span></button></li>
+            </ul>
+        </nav>
+        <div id='highScores' class='dialog'>
+        </div>
+        <div id='history' class='dialog'>
+        </div>
+        <div id='about' class='dialog'>
+        </div>
+        <div id='help' class='dialog'>
+        </div>
+    </main>
+    <script src='lib/ui.js'></script>
+    <script>
+    </script>
+</body>
+
+</html>
